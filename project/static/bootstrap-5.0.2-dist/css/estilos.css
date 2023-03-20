@@ -1,0 +1,7 @@
+body {
+    background-image: url("/static/bootstrap-5.0.2-dist/img/epic.png");
+    background-position: center center; /* Centrar la imagen vertical y horizontalmente */
+    background-size: contain; /* Ajustar el tamaño para contener toda la imagen */
+    background-repeat: no-repeat;
+}
+

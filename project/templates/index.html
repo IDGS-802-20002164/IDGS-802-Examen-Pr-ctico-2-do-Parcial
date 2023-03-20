@@ -1,0 +1,196 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+  <header>
+  <nav>
+    <div class="shortcut-icon">
+      <a class="shortcut-icon" href="{{ url_for('main.index') }}"><img src="../static/bootstrap-5.0.2-dist/assets/epicW.png" alt="i"/></a>
+           
+    Inicio
+  </a>
+
+
+    </div>
+
+    <ul class="top-left">
+      <li>
+        <a href="https://store.epicgames.com/es-ES/">TIENDA</a>
+        <a href="https://store.epicgames.com/es-ES/news">NOTICIAS</a>
+        <a href="https://www.epicgames.com/site/es-ES/epic-games-store-faq">PREGUNTAS FRECUENTES</a>
+        <a href="https://www.epicgames.com/help/es-ES/">AYUDA</a>
+        <a href="https://www.unrealengine.com/es-ES">UNREAL ENGINE</a>
+        <span>|</span>
+        <a href="{{ url_for('auth.catalogo') }}"
+           class="consigue">Catalogo de juegos</a>
+      </li>
+    </ul>
+
+
+    <ul class="top-right">
+      <li>
+        <i class="mundo_icono"><a href="#"><fa-icon [icon]="faGlobe"></fa-icon></a></i>
+   
+
+           {% if current_user.is_authenticated %}
+  <a class="shortcut-icon" href="{{ url_for('main.profile') }}"><i class="fa-regular fa-user"></i> Perfil de Usuario</a>
+      
+  </a>
+  {% endif %}
+  {% if not current_user.is_authenticated %}
+  <a href="{{ url_for('auth.login') }}"><i class="fa-regular fa-user"> </i>Login</a>
+      
+  </a>
+  <a  href="{{ url_for('auth.register') }}"
+  class="consigue">Registro</a>
+      
+  </a>
+  {% endif %}
+  {% if current_user.is_authenticated %}
+    <a href="{{ url_for('auth.logout') }}"
+           class="consigue">Cerrar Sesión</a>
+      
+  </a>
+  {% endif %}
+      </li>
+    </ul>
+  </nav>
+
+  
+  
+
+
+</header>
+
+<footer>
+  <div class="redes">
+    <a href="https://www.facebook.com/epicgames"
+      ><fa-icon [icon]="faSquareFacebook"></fa-icon
+    ></a>
+    <a href="https://twitter.com/epicgames"
+      ><fa-icon [icon]="faTwitter"></fa-icon
+    ></a>
+    <a href="http://youtube.com/epicgamesinc"
+      ><fa-icon [icon]="faYoutube"></fa-icon
+    ></a>
+  </div>
+
+  <div class="volver">
+    <p>
+      <a href="#" (click)="scrollToTop()"
+        ><fa-icon [icon]="faArrowUp"></fa-icon> VOLVER AL PRINCIPIO</a
+      >
+    </p>
+  </div>
+
+  <p>RECURSOS</p>
+  <div class="pie">
+    <ul>
+      <div class="lista1">
+        <li>
+          <a href="https://www.epicgames.com/store/about"
+            >Publicar en Epic Games</a
+          >
+          <a href="https://www.epicgames.com/site/es-ES/careers">Empleo</a>
+          <a href="https://www.epicgames.com/site/es-ES/about">Compañía</a>
+          <a href="https://www.epicgames.com/site/es-ES/fan-art-policy"
+            >Política de contenido de fans</a
+          >
+        </li>
+      </div>
+
+      <div class="lista2">
+        <li>
+          <a href="https://dev.epicgames.com/">Servicios en línea</a>
+          <a href="https://www.epicgames.com/site/es-ES/community-rules"
+            >Reglas de la comunidad</a
+          >
+          <a href="https://www.epicgames.com/site/es-ES/news">Epic Newsroom</a>
+        </li>
+      </div>
+
+      <div class="lista3">
+        <li>
+          <a href="https://status.epicgames.com/">Estado del servidor</a>
+          <a href="https://www.epicgames.com/site/es-ES/ux"
+            >Estudio de experiencias de usuarios</a
+          >
+          <a href="https://www.epicgames.com/store/eula">CLUF de la tienda</a>
+        </li>
+      </div>
+    </ul>
+  </div>
+
+  <p>CREADO POR EPIC GAMES</p>
+  <div class="pie">
+    <ul>
+      <div class="lista1">
+        <li>
+          <a href="https://www.epicgames.com/battlebreakers">Batlle Breakers</a>
+          <a href="https://www.fallguys.com/">Fall Guys</a>
+          <a href="https://www.epicgames.com/fortnite">Fortnite</a>
+          <a href="https://www.epicgames.com/infinityblade">Infinity Blade</a>
+        </li>
+      </div>
+
+      <div class="lista2">
+        <li>
+          <a href="https://www.epicgames.com/roborecall">Robo Recall</a>
+          <a href="https://www.rocketleague.com/">Rocket League</a>
+          <a href="https://www.epicgames.com/shadowcomplex">Shadow Complex</a>
+          <a href="https://www.epicgames.com/unrealtournament"
+            >Unreal Tournament</a
+          >
+        </li>
+      </div>
+    </ul>
+  </div>
+
+  <hr />
+
+  <div class="derechos">
+    <p>
+      © 2023, Epic Games, Inc. Todos los derechos reservados. Epic, Epic Games,
+      el logotipo de Epic Games, Fortnite, el logotipo de Fortnite, Unreal,
+      Unreal Engine, el logotipo de Unreal Engine, Unreal Tournament y el
+      logotipo de Unreal Tournament son marcas comerciales o marcas registradas
+      de Epic Games, Inc. tanto en Estados Unidos de América como en el resto
+      del mundo. Otras marcas o nombres de productos son marcas comerciales de
+      sus respectivos propietarios.
+    </p>
+  </div>
+
+  <div class="compliance">
+    <ul>
+      <li>
+        <a href="https://www.epicgames.com/site/es-ES/home#"
+          >Términos y servicio</a
+        >
+        <a href="https://www.epicgames.com/site/es-ES/privacypolicy"
+          >Política de privacidad</a
+        >
+        <a href="https://www.epicgames.com/site/es-ES/store-refund-policy"
+          >Política de reembolso de la tienda</a
+        >
+        <a href="https://www.epicgames.com/site/es-ES/account-security"
+          >Seguridad de la cuenta</a
+        >
+      </li>
+    </ul>
+  </div>
+
+  <div class="iconosFinales">
+    <ul>
+      <li>
+        <a href="https://www.unrealengine.com/es-ES/?lang=es-ES"
+          ><img src="../static/bootstrap-5.0.2-dist/assets/unrealW.png" alt="unreal icono"
+        /></a>
+        <a href="https://www.epicgames.com/es-ES/?lang=es-ES"
+          ><img src="../static/bootstrap-5.0.2-dist/assets/epicW.png" alt="epic icono"
+        /></a>
+      </li>
+    </ul>
+  </div>
+</footer>
+
+{% endblock %}

@@ -1,0 +1,277 @@
+body{
+  background: rgb(42, 42, 42) !important;
+  color: rgba(255, 255, 255, .8) !important;
+  letter-spacing: 1px;
+}
+
+p{
+  width: 100%;
+  display: inline-block;
+}
+
+@keyframes barraMenu{
+  from{border-bottom: 2px solid rgb(0, 120, 242);}
+  to{border-bottom: 5px solid rgb(0, 120, 242);}
+}
+
+@keyframes barraMenuReverse {
+  from {
+    border-bottom: 5px solid rgb(0, 120, 242);
+  }
+  to {
+    border-bottom: 2px solid rgb(0, 120, 242);
+  }
+}
+
+header {
+  background: rgb(42, 42, 42);
+  font-size: .70em;
+  width: 100%;
+  height: 50px;
+  vertical-align: middle;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+header nav {
+  width: 100%;
+  display: flex;
+}
+
+header nav .shortcut-icon img {
+  margin-top: .50em;
+  width: 32px;
+}
+
+header nav .top-left{
+  display: inline-block;
+  list-style: none;
+  margin-top: auto;
+}
+
+header nav .top-left span{
+  margin-top: auto;
+  color: rgba(255, 255, 255, .8);
+  padding-right: 1.3em;
+  font-size: 1.5em;
+  font-weight: lighter;
+}
+
+header nav .top-left a{
+  text-decoration: none;
+  color: rgba(255, 255, 255, .8);
+  margin-right: 3em;
+  text-align: left;
+  flex: 1;
+  padding-bottom: 1.2em;
+}
+
+header nav .top-left a:hover{
+  color: white;
+  animation-name: barraMenu;
+  animation-duration: 100ms;
+  animation-fill-mode: forwards;
+  animation-direction: alternate;
+}
+
+header nav .top-left a:not(:hover) {
+  animation-name: barraMenuReverse;
+  animation-duration: 100ms;
+}
+
+header nav .top-right {
+  float: right;
+  margin-left: auto;
+  margin-top: auto;
+  list-style: none;
+}
+
+header nav .top-right .mundo_icono{
+  margin-top: auto;
+  font-size: 1.3em;
+}
+
+header nav .top-right a {
+  text-decoration: none;
+  color: rgba(255, 255, 255, .8);
+  padding-right: 1.3em;
+  padding-left: 1.3em;
+  transition: color 0.4s ease;
+  margin-left: 1em;
+}
+
+.consigue{
+  height: 100%;
+  color: white !important;
+  background-color: rgb(0, 125, 252);
+  font-weight: bold;
+  padding-top: 1.5em;
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-bottom: 1.6em;
+  margin: 0;
+}
+
+/* Añade anchura del 100% al contenedor */
+.container{
+  width: 100%;
+}
+
+footer{
+  width: 100%;
+  vertical-align: middle;
+  padding-left: 2.8em;
+  padding-right: 2.8em;
+}
+
+.redes{
+  width: 50%;
+  display: flex;
+  float: left;
+  margin-top: 3em;
+}
+
+.redes a{
+  font-size: 2em;
+  color: rgba(255, 255, 255, .8);
+  padding-right: .3em;
+  transition: color 0.4s ease;
+  text-align: left;
+  display: inline-block;
+}
+
+.redes a:hover{
+  color: rgb(0, 120, 242);
+}
+
+.volver {
+  width: 50%;
+  display: flex;
+  float: right;
+  justify-content: flex-end;
+  margin-top: 3em;
+  margin-bottom: 3em;
+}
+
+.volver p{
+  font-size: .8em;
+  text-decoration: none;
+  text-align: right;
+  display: inline-block;
+}
+
+.volver a{
+  color: rgba(255, 255, 255, .8);
+  text-decoration: none;
+  transition: color 0.4s ease;
+  text-align: right;
+  display: inline-block;
+  padding-top: 2em;
+}
+
+.volver a:hover{
+  color: rgb(0, 120, 242);
+}
+
+.pie{
+  width: 100%;
+  display: flex;
+  font-size: .8em;
+}
+
+.pie ul{
+  list-style-type: none;
+  padding: 0;
+}
+
+.pie a {
+  font-size: .9em;
+  color: rgba(255, 255, 255, .8);
+  display: block;
+  text-decoration: none;
+  transition: color 0.4s ease;
+  margin-right: 1.5em;
+  margin-bottom: .9em;
+}
+
+.pie a:hover {
+  color: rgb(0, 120, 242);
+}
+
+
+.pie .lista1{
+  float: left;
+}
+
+.pie .lista2, .lista3{
+  float: right;
+}
+
+.derechos p{
+  width: 68%;
+  font-size: .7em;
+  margin-top: 3em;
+}
+
+.compliance {
+  width: 70%;
+  display: flex;
+  float: left;
+  font-size: .8em;
+}
+
+.compliance ul{
+  padding: 0;
+  list-style: none;
+}
+
+.compliance a{
+  color: rgba(255, 255, 255, .8);
+  transition: color 0.4s ease;
+  margin-right: 1.5em;
+  text-decoration: none;
+}
+
+.compliance a:hover{
+  color: rgb(0, 120, 242);
+}
+
+.iconosFinales{
+  width: 30%;
+  display: flex;
+  float: right;
+  justify-content: flex-end;
+}
+
+.iconosFinales ul{
+  list-style: none;
+}
+
+.iconosFinales a img{
+  width: 32px;
+  float: right;
+  margin: .5em;
+  transition: color 0.4s ease;
+}
+
+.carousel-caption {
+  -webkit-text-stroke: 1px black; /* Borde negro */
+  font-size: 50px;
+}
+
+.full-screen-img {
+  width: 100%;
+  object-fit: contain;
+}
+
+.picsum-img-wrapper img {
+  opacity: 0.5; /* Imágenes opacas */
+  transition: all 0.2s ease-in-out; /* Transición suave */
+
+}
+
+.picsum-img-wrapper img:hover {
+  opacity: 1; /* Imágenes con color */
+  transform: scale(1.05); /* Imágenes ligeramente más grandes */
+}

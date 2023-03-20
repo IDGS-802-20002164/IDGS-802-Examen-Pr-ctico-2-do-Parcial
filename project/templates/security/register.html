@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container-fluid" >
+    <div class="row mt-4 justify-content-center">
+            <div class="col-9">
+                    <div class="card">
+                            <div class="card-header">
+                                <h2 class="text-primary text-center">Registro</h2>
+                            </div>
+                            <div class="card-body">
+                                   
+                                <div class="box">
+                                    {% with messages = get_flashed_messages() %}
+                                        {% if messages %}
+                                            <div class="notification is-danger">
+                                                {{ messages[0] }}. Go to 
+                                                <a href="{{ url_for('auth.login') }}">login page</a>.
+                                            </div>
+                                        {% endif %}
+                                    {% endwith %}
+                                    <form method="POST" action="/security/register">
+                                        <center>
+                                        <div class="form-group">
+                                            <div class="control">
+                                                <input class="form-control" type="email" name="email" placeholder="Email" autofocus="">
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <div class="form-group">
+                                            <div class="control">
+                                                <input class="form-control" type="text" name="name" placeholder="Nombre" autofocus="">
+                                            </div>
+                                        </div>
+                            <br>
+                                        <div class="form-group">
+                                            <div class="control">
+                                                <input class="form-control" type="password" name="password" placeholder="Password">
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <button class="btn btn-primary">Registrar</button>
+                                    </center>
+                                    </form>
+                                </div>
+                            </div>
+                    </div>
+             </div>       
+    </div>
+</div>
+{% endblock %}

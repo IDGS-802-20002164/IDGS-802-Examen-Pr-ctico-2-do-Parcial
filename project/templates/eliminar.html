@@ -1,0 +1,127 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+        {%from "_macros.html" import render_firld%}
+        <header>
+                <nav>
+                  <div class="shortcut-icon">
+                    <a class="shortcut-icon" href="{{ url_for('main.index') }}"><img src="../static/bootstrap-5.0.2-dist/assets/epicW.png" alt="i"/></a>
+                         
+                  Inicio
+                </a>
+              
+              
+                  </div>
+              
+                  <ul class="top-left">
+                    <li>
+                      <a href="https://store.epicgames.com/es-ES/">TIENDA</a>
+                      <a href="https://store.epicgames.com/es-ES/news">NOTICIAS</a>
+                      <a href="https://www.epicgames.com/site/es-ES/epic-games-store-faq">PREGUNTAS FRECUENTES</a>
+                      <a href="https://www.epicgames.com/help/es-ES/">AYUDA</a>
+                      <a href="https://www.unrealengine.com/es-ES">UNREAL ENGINE</a>
+                      <span>|</span>
+                      <a href="{{ url_for('auth.catalogoAdm') }}"
+                         class="consigue">Catalogo de juegos</a>
+                    </li>
+                  </ul>
+              
+              
+                  <ul class="top-right">
+                    <li>
+                      <i class="mundo_icono"><a href="#"><fa-icon [icon]="faGlobe"></fa-icon></a></i>
+                 
+              
+                         {% if current_user.is_authenticated %}
+                <a class="shortcut-icon" href="{{ url_for('main.profile') }}"><i class="fa-regular fa-user"></i> Perfil de Usuario</a>
+                    
+                </a>
+                {% endif %}
+                {% if not current_user.is_authenticated %}
+                <a href="{{ url_for('auth.login') }}"><i class="fa-regular fa-user"> </i>Login</a>
+                    
+                </a>
+                <a  href="{{ url_for('auth.register') }}"
+                class="consigue">Registro</a>
+                    
+                </a>
+                {% endif %}
+                {% if current_user.is_authenticated %}
+                  <a href="{{ url_for('auth.logout') }}"
+                         class="consigue">Cerrar Sesión</a>
+                    
+                </a>
+                {% endif %}
+                    </li>
+                  </ul>
+                </nav>
+              
+                
+                
+              
+              
+              </header>
+        <div class="container-fluid" >
+                <div class="row mt-4 justify-content-center">
+                        <div class="col-9">
+                                <div class="card">
+                                        <div class="card-header">
+                                            <h2 class="text-primary text-center">Informacion del juego</h2>
+                                        </div>
+                                        <div class="card-body">
+                                               
+                        <form name="sent" action="" id="form1" method="POST">
+                            <div  style="color: black" class="row control-group">
+                                <div class="form-group col-xs-12 float-label-form-group controls">
+                                        {{render_firld(form.id,class='form-control')}}
+                                </div>
+                        </div>
+                                <div class="row control-group">
+                                        <div style="color: black" class="form-group col-xs-12 float-label-form-group controls">
+                                           
+                                                {{render_firld(form.name,class='form-control')}}
+                                        </div>
+                                </div>
+                                <div class="row control-group">
+                                        <div style="color: black" class="form-group col-xs-12 float-label-form-group controls">
+                                          
+                                                {{render_firld(form.description,class='form-control')}} 
+                                        </div>
+                                </div>
+
+                                <div class="row control-group">
+                                        <div style="color: black" class="form-group col-xs-12 float-label-form-group controls">
+                                          
+                                                {{render_firld(form.unidades,class='form-control')}} 
+                                        </div>
+                                </div>
+                                <br>
+                                <center>
+                                    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          {% for message in messages %}
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+              <strong>{{ message }}</strong> Por favor, haz clic en el botón para continuar.
+              <form method="POST" action="">
+                                        <a href="{{ url_for('auth.catalogoAdm') }}" class="btn1"><i class="icon-action-undo icon-white"></i>continuar</a>
+              </form>
+            </div>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+                                        <input type="submit" class="btn1" id="eliminar" name="eliminar" value="eliminar"/>
+                                        <a href="{{ url_for('auth.catalogoAdm') }}" class="btn1"><i class="icon-action-undo icon-white"></i>Cancelar</a>
+                                </center>
+                                
+                        </form>
+                                        </div>
+                                </div>
+                         </div>       
+                </div>
+        </div>
+
+
+
+
+{% endblock %}
